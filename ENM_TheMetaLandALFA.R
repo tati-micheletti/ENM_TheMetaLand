@@ -1,4 +1,4 @@
-## Written by Andre Andrade & Santiago Velazco
+﻿## Written by Andre Andrade & Santiago Velazco
 
 ENMs_TheMetaLand<-function(Dir,
                            Sp,
@@ -161,31 +161,64 @@ ENMs_TheMetaLand<-function(Dir,
   
 #2.Load Auxiliary Functions ----
   
-  if (file.exists("C:\\Scripts_for_ENM_TheMetaLand")==F){
-    stop("Place the folder 'Scripts_for_ENM_TheMetaLand' in C:")
-  }
-  source("C:\\Scripts_for_ENM_TheMetaLand\\PCA_env_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\PCA_ENS_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\Occ_Unicas_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\BandsPartition_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\BlockPartition_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\Random_Moran_e_Schoener_TML.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\Moran_for_Quadrants_Pair_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\Evaluation_TML.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\BackZoo_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\SUMMRES.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\predict.graf.raster.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\FitENM_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\MSDM_Priori_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\AuxiliaryFuncENM_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\PredictENM_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\M_SDM_posteriori_SJEV_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\PCAFuturo_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\ENS_Posterior_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\maxnet2.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\Moran_for_Bootstrap_TMLA.R")
-  source("C:\\Scripts_for_ENM_TheMetaLand\\Bootstrap_Moran_e_MESS_TMLA.R")
+funs<-c("https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/AuxiliaryFuncENM_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/BackZoo_TML.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/BackZoo_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/BandsCrossValidation_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/BandsPartitionOLD_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/BandsPartition_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/BlockCrossValidation_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/BlockPartition_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Bootstrap_Moran_e_MESS_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/ENS_Posterior_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Evaluation_TML.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/FitENM_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/FitENM_TMLA_OLD.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/MSDM_Priori_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/M_SDM_posteriori_SJEV_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Moran_for_Bootstrap_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Moran_for_Quadrants.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Moran_for_Quadrants_Pair.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Occ_Unicas_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Optimal_Quadrants_Selection_TML.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Optimal_Quadrants_Selection_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PCA_ENS_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PCA_env_TML.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PCA_env_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PcaFuturo_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PredictENM_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Random_Moran_e_Schoener_TML.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Random_Moran_e_Schoener_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PCA_ENS_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PCA_env_TML.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PCA_env_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PcaFuturo_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/PredictENM_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Random_Moran_e_Schoener_TML.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/Random_Moran_e_Schoener_TMLA.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/SUMMRES.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/desktop.ini",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/maxnet2.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/niche.overlap.functions.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/occ.prep.functions.R",
+        "https://raw.githubusercontent.com/andrefaa/ENM_TheMetaLand/master/Scripts_for_ENM_TheMetaLand/predict.graf.raster.R"
+  )
   
+  source_https <- function(url, ...) {
+    # load package
+    require(RCurl)
+    
+    # parse and evaluate each .R script
+    sapply(c(url, ...), function(u) {
+      eval(parse(text = getURL(u, followlocation = TRUE, cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl"))), envir = .GlobalEnv)
+    })
+  }
+  
+  
+source_https(funs,unlink.tmp.certs = TRUE)
+  
+
+
 #3.Predictors ----
   
   setwd(Dir)
