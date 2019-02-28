@@ -115,12 +115,12 @@ The function has several input arguments, specify all of them as your desires.
       
 ## Where do I inform my Occurrence Data?  
 Not everything will be input as arguments at the beggining!  
-There will be some specific parameters which the user will need to "awnser" in the command during the execution  
+Some specific parameters are interactive (i.e. the user will need to "answer" in the console during the execution of the software).  
 Occurrence data will be selected at a given point during the process, the user will be asked to select the occurrence file [TXT FORMAT!!!]  
 
 ## What else do I need to awnser?  
 Some specific questions will be asked during the process (e.g. Select the percentage of data for training(0-1) will be asked if you chose the "boot" partition)  
-Pay attention and make your choices accordingly. There are specific valid awnsers, the procedure will NOT move ahead if the answer deviates from what is ecpected.  
+Pay attention and make your choices accordingly. There are specific valid answers, the procedure will NOT move ahead if the answer deviates from what is expected.  
 
 ## Where are my results?  
 One level above the folder of your environmental variables will be created a **Result** folder, inside you will find a folder for each algorithm and a folder for Ensemble (ENS) and projections (FUT), if you chose to do so.  
